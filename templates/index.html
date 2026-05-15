@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. leaf - Plant Disease Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <h2>🌿 Dr. leaf</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#diagnosis">Disease</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+
+        <a href="#diagnosis" class="nav-btn">
+            Try Now
+        </a>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-left">
+            <img src="{{ url_for('static', filename='images/hero-plant.png') }}" alt="">
+        </div>
+
+        <div class="hero-right">
+
+            <h1>
+                Identify and cure
+                <span>plant diseases</span>
+                with Dr. leaf
+            </h1>
+
+            <p>
+                Upload a plant image and let our CNN model detect diseases instantly.
+                Get accurate predictions and treatment suggestions in seconds.
+            </p>
+
+            <a href="#diagnosis" class="hero-btn">
+                Diagnose Now
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="diagnosis">
+
+        <div class="section-title">
+
+            <h2>Personal plant doctor in your pocket</h2>
+
+            <p>
+                Upload a plant image and our AI model trained on the PlantVillage dataset
+                will identify the disease accurately.
+            </p>
+
+        </div>
+
+
+        <div class="disease-gallery">
+
+            <div class="upload-card" id="upload-section">
+
+                <form action="/predict" method="POST" enctype="multipart/form-data">
+
+                    <input type="file" name="file" required>
+
+                    <button type="submit">
+                        Start Diagnosing
+                    </button>
+
+                </form>
+
+            </div>
+
+            <img src="{{ url_for('static', filename='images/tulsi.jpg') }}">
+            <img src="{{ url_for('static', filename='images/unknown_leaves.webp') }}">
+            <img src="{{ url_for('static', filename='images/tomato2.jpg') }}">
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="features">
+
+        <div class="section-title">
+
+            <h2>More than just disease identification</h2>
+
+        </div>
+
+        <div class="feature-container">
+
+            <div class="feature-left">
+
+                <div class="feature-box">
+                    <h3>Plant Identification</h3>
+                    <p>Identify plants using AI.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Disease Prediction</h3>
+                    <p>Detect diseases using CNN.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Fast Results</h3>
+                    <p>Get prediction instantly.</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>Smart Agriculture</h3>
+                    <p>AI-powered farming assistant.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="faq" id="faq">
+
+        <div class="faq-box">
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How does the model work?</h3>
+                <p>
+                    The CNN model predicts diseases from uploaded plant images.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Which dataset was used?</h3>
+                <p>
+                    PlantVillage dataset.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I use mobile images?</h3>
+                <p>
+                    Yes, upload any clear plant image.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+
+    <section class="reviews" id="reviews">
+
+        <div class="section-title">
+            <h2>What users say</h2>
+        </div>
+
+        <div class="review-container">
+
+            <div class="review-card">
+                <p>
+                    Amazing project.
+                </p>
+                <h4>Satyajit</h4>
+            </div>
+
+            <div class="review-card">
+                <p>
+                    Very beautiful UI and useful app.
+                </p>
+                <h4>Kunal</h4>
+            </div>
+
+            <div class="review-card">
+                <p>
+                    Excellent project for agriculture.
+                </p>
+                <h4>Shubham</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <h2>
+            Start protecting your plants today
+        </h2>
+
+        <a href="#diagnosis">
+            Diagnose Now
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>
+            © 2026 Dr. leaf - Plant Disease Detection
+        </p>
+    </footer>
+
+</body>
+
+
+</html>
