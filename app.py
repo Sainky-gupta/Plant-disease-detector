@@ -2,7 +2,9 @@ from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
+import gdown
 import os
+
 
 app = Flask(__name__)
 
@@ -13,8 +15,20 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Create upload folder if not exists
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# load model from google drive
+MODEL_PATH = 'plant_disease_model2.h5'
+if not os.path.exists(MODEL_PATH):
+
+    print("Downloading model...")
+
+    url = 'https://drive.google.com/uc?id=1oi-qm9ETh6OjcH1ixm-T_CctUVNp_dCE'
+
+    gdown.download(url, MODEL_PATH, quiet=False)
+
+    print("Model downloaded successfully.")
+
 # Load trained model
-model = load_model('plant_disease_model3.h5')
+model = load_model(MODEL_PATH)
 
 # Load class labels
 with open('model/labels.txt', 'r', encoding='utf-8') as f:
